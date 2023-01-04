@@ -1,0 +1,78 @@
+<!-- <mat-card>
+  <mat-card-header>JOUEUR 1</mat-card-header>
+  <mat-card-content>
+    <mat-grid-list cols="7" rowHeight="1:1">
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile>1.1</mat-grid-tile>
+      <mat-grid-tile>1.2</mat-grid-tile>
+      <mat-grid-tile>1.3</mat-grid-tile>
+      <mat-grid-tile>1.4</mat-grid-tile>
+      <mat-grid-tile class="special">1.5</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile>2.1</mat-grid-tile>
+      <mat-grid-tile>2.2</mat-grid-tile>
+      <mat-grid-tile>2.3</mat-grid-tile>
+      <mat-grid-tile class="special">2.4</mat-grid-tile>
+      <mat-grid-tile>2.5</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile>3.1</mat-grid-tile>
+      <mat-grid-tile>3.2</mat-grid-tile>
+      <mat-grid-tile class="special">3.3</mat-grid-tile>
+      <mat-grid-tile>3.4</mat-grid-tile>
+      <mat-grid-tile>3.5</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile>4.1</mat-grid-tile>
+      <mat-grid-tile class="special">4.2</mat-grid-tile>
+      <mat-grid-tile>4.3</mat-grid-tile>
+      <mat-grid-tile>4.4</mat-grid-tile>
+      <mat-grid-tile>4.5</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="empty"></mat-grid-tile>
+      <mat-grid-tile class="special">5.1</mat-grid-tile>
+      <mat-grid-tile>5.2</mat-grid-tile>
+      <mat-grid-tile>5.3</mat-grid-tile>
+      <mat-grid-tile>5.4</mat-grid-tile>
+      <mat-grid-tile>5.5</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+      <mat-grid-tile class="result">result</mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card> -->
+
+<mat-card>
+  <mat-card-header>JOUEUR 1</mat-card-header>
+  <mat-card-content>
+    <mat-grid-list cols="7" rowHeight="1:1">
+      <div *ngFor="let line of boardBoxes; let x = index">
+        <mat-grid-tile
+          [ngClass]="[
+            box.icon === undefined && !box.text ? 'touchable' : 'untouchable'
+          ]"
+          [class]="box.class"
+          *ngFor="let box of line; let y = index"
+          (click)="addIcon(x, y)"
+        >
+          <p *ngIf="box.text">{{ box.text }}</p>
+          <mat-icon *ngIf="box.icon">{{ box.icon }}</mat-icon>
+          <mat-icon *ngIf="box.icon === undefined && !box.text">add</mat-icon>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </mat-card-content>
+</mat-card>
