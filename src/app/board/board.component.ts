@@ -28,7 +28,7 @@ export class BoardComponent implements OnInit {
       { class: 'box', icon: undefined },
       { class: 'box', icon: undefined },
       { class: 'special', icon: undefined },
-      { class: 'result', text: undefined },
+      { class: 'result', text: 'result' },
     ],
     [
       { class: 'empty', text: ' ' },
@@ -83,7 +83,7 @@ export class BoardComponent implements OnInit {
     const enumValues = Object.values(logo);
     console.log(enumValues);
 
-    const randomNumber = Math.floor(Math.random() * (5 + 1));
+    const randomNumber = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
     const randomIcon = logo[randomNumber];
     console.log(randomIcon);
     this.boardBoxes[row][line].icon = randomIcon;

@@ -20,6 +20,7 @@ mat-card {
 
 .untouchable {
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 .touchable {

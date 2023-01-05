@@ -17,10 +17,11 @@ export enum logoGeek {
 }
 
 export enum logo {
+  'add',
   'disc_full',
- 'router',
+  'router',
   'vibration',
- 'headphones',
+  'headphones',
   'memory',
   'print',
 }
